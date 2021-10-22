@@ -147,3 +147,5 @@ static/
 data.local/
 
 django_cache/
+
+*.csv
