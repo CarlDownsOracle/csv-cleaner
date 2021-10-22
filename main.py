@@ -8,24 +8,19 @@ import csv
 
 
 def convert(input_string):
+
     try:
         value = input_string.replace(',','')
         value = value.replace('$','')
         decimal = Decimal(value)
         return abs(decimal)
+
     except Exception as e:
         print('exception is {} input is {}'.format(e, input_string))
 
 
-def is_a_discard(item):
-    return item['marker'] == 'discard'
-
-
-def is_a_keeper(item):
-    return item['marker'] == 'keep'
-
-
 def filter_csv(input_file):
+
     with open(input_file, mode='r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         identifiers = {}
@@ -95,6 +90,7 @@ def filter_csv(input_file):
 
 
 def output_to_file(output_rows, filename):
+
     try:
 
         if len(output_rows) > 0:
