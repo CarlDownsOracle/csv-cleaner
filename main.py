@@ -33,7 +33,7 @@ def filter_csv(input_file):
         unique_id = 1
         for row in csv_reader:
 
-            print(row)
+            # print(row)
 
             key = row.get("Material") + "." + row.get("Customer") + "." + row.get("ABS")
             credit = convert(row.get('Credit'))
@@ -41,7 +41,7 @@ def filter_csv(input_file):
             row['c_credit'] = credit
             row['c_debit'] = debit
 
-            print(key)
+            # print(key)
 
             comparable_row = identifiers.get(key)
 
@@ -70,6 +70,7 @@ def filter_csv(input_file):
                     if row_credit == target_debit and row_debit == target_credit:
                         target['marker'] = str(unique_id)
                         row['marker'] = str(unique_id)
+                        print("discarding: {}".format(unique_id))
                         unique_id += 1
                         break
 
@@ -77,7 +78,7 @@ def filter_csv(input_file):
 
 
 
-        print (identifiers)
+        # print (identifiers)
 
         discarded_rows = []
         kept_rows = []
