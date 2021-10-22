@@ -105,8 +105,8 @@ def output_to_file(output_rows, filename):
                 for key in output_rows:
                     writer.writerow(key)
 
-    except IOError:
-        print("I/O error")
+    except IOError as e:
+        print("I/O error: {}".format(e))
 
 
 # Press the green button in the gutter to run the script.
